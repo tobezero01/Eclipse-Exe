@@ -1,0 +1,72 @@
+//package jframe;
+//
+//import java.awt.BorderLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.GridLayout;
+//import java.awt.Insets;
+//
+//import javax.swing.JButton;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JRadioButton;
+//import javax.swing.JTextField;
+//
+//public class testLayout {
+//      public static void main(String[] args) {
+//		JFrame frame = new JFrame();
+//		
+//		JPanel panel1 = new JPanel();
+//		panel1.setLayout(new GridBagLayout());
+//		GridBagConstraints c = new GridBagConstraints();
+//		c.anchor = GridBagConstraints.LINE_START;
+//		c.insets = new Insets(20, 20, 10, 10);
+//		c.gridx = 0; 
+//		c.gridy = 0;
+//		c.weightx = 0.3;
+//		panel1.add(new JLabel("Name"),c);
+//		
+//		c.gridy = 1;
+//		panel1.add(new JLabel("Birth"),c);
+//		c.gridy = 2;
+//		panel1.add(new JLabel("Address"),c);
+//		c.gridy = 3;
+//		panel1.add(new JLabel("Sex"),c);
+//		
+//		
+//		c.gridx = 1; 
+//		c.gridy = 0;
+//		c.weightx = 0.7;
+//		c.fill = GridBagConstraints.BOTH;
+//		panel1.add(new JTextField(),c);
+//		
+//		c.gridy = 1;
+//		panel1.add(new JTextField(),c);
+//		
+//		c.gridy = 2;
+//		panel1.add(new JTextField(),c);
+//		
+//		JPanel panel2 = new JPanel();
+//		panel2.setLayout(new GridLayout(1,1));
+//		JRadioButton rb1  = new JRadioButton("Male");
+//		JRadioButton rb2  = new JRadioButton("Female");
+//		panel2.add(rb1);
+//		panel2.add(rb2);
+//		
+//		
+//		JPanel panel3 = new JPanel();
+//		panel3.add(new JButton("add"));
+//		panel3.add(new JButton("Find"));
+//		panel3.add(new JButton("Delete"));
+//		panel3.add(new JButton("Update"));
+//		
+//		frame.add(BorderLayout.SOUTH,panel3);
+//		frame.add(BorderLayout.CENTER,panel2);
+//		frame.add(BorderLayout.NORTH,panel1);
+//		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+//		frame.setSize(400,300);
+//		frame.setLocationRelativeTo(null);
+//		frame.setVisible(true);
+//	}
+//}

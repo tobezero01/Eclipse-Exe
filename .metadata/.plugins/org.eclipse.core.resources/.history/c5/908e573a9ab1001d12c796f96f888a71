@@ -1,0 +1,6 @@
+package baitapDauTien;
+
+public class student {
+     int tuoi;
+     
+}

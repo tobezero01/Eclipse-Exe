@@ -1,0 +1,17 @@
+package Bank;
+
+import java.util.*;
+
+public class main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BankAccount b = new BankAccount(1000);
+        CheckingAccount c = new CheckingAccount(50);
+        SavingAccount s = new SavingAccount(10000,10);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(s);
+    }
+}
+
+        

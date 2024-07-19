@@ -1,0 +1,14 @@
+package swing2;
+
+import javax.swing.*;
+
+public class tets1 {
+	public static void main(String[] argv) throws Exception {
+        UnderlinedLabel label = new UnderlinedLabel("Label Text");
+        JFrame jFrame = new JFrame("Custom label");
+        jFrame.setSize(400, 50);
+        jFrame.getContentPane().add(label);
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+    }
+}

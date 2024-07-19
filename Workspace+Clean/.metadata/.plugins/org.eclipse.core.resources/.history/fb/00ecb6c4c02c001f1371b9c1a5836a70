@@ -1,0 +1,9 @@
+package matrix;
+
+public class mainMatrix {
+
+	
+	public static void main(String[] args) {
+		
+	}
+}

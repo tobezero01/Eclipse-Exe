@@ -1,0 +1,12 @@
+import java.util.* ;
+public class testPractice {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        String car = "VS";
+        String Transport = car == "VS" ? "VS1" : "Vs2"; 
+        System.out.println(Transport);
+	}
+
+}
+;

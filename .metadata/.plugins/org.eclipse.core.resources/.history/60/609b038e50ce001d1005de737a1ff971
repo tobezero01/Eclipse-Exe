@@ -1,0 +1,5 @@
+package swing2;
+import java.util.*;
+public interface FormListener implements Eventlistener{
+public void formEventOccurred(FormEvent e);
+}

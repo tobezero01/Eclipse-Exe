@@ -1,0 +1,89 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class initArrays {
+	private int[] array;
+    private int size;
+
+    public initArrays() {
+        array = new int[10]; // initial capacity
+        size = 0;
+    }
+
+    // Add an element at the beginning
+    public void addFirst(int value) {
+        ensureCapacity(size + 1);
+        System.arraycopy(array, 0, array, 1, size);
+        array[0] = value;
+        size++;
+    }
+
+    // Add an element at the end
+    public void addLast(int value) {
+        ensureCapacity(size + 1);
+        array[size++] = value;
+    }
+
+    // Remove an element at a specific position
+    public void removeAt(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        int numMoved = size - index - 1;
+        if (numMoved > 0) {
+            System.arraycopy(array, index + 1, array, index, numMoved);
+        }
+        array[--size] = 0; // clear to let GC do its work
+    }
+
+    // Insert an element at a specific position
+    public void insertAt(int index, int value) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        ensureCapacity(size + 1);
+        System.arraycopy(array, index, array, index + 1, size - index);
+        array[index] = value;
+        size++;
+    }
+
+    // Ensure sufficient capacity
+    private void ensureCapacity(int minCapacity) {
+        if (minCapacity > array.length) {
+            int newCapacity = Math.max(array.length * 2, minCapacity);
+            array = Arrays.copyOf(array, newCapacity);
+        }
+    }
+
+    // Print the array
+    public void printArray() {
+        for (int i = 0; i < size; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Get the size of the array
+    public int getSize() {
+        return size;
+    }
+
+    public static void main(String[] args) {
+        initArrays customArray = new initArrays();
+
+        customArray.addLast(10);
+        customArray.addLast(20);
+        customArray.addLast(30);
+        customArray.printArray(); // Output: 10 20 30
+
+        customArray.addFirst(5);
+        customArray.printArray(); // Output: 5 10 20 30
+
+        customArray.insertAt(2, 15);
+        customArray.printArray(); // Output: 5 10 15 20 30
+
+        customArray.removeAt(3);
+        customArray.printArray(); // Output: 5 10 15 30
+    }
+}

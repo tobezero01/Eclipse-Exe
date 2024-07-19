@@ -1,0 +1,31 @@
+package Bank;
+
+class CheckingAccount extends BankAccount {
+    public static double TRANSACTION_FEE = 2.0;
+    public static int FREE_TRANSACTION = 3;
+    private int transactionCount ;
+    
+    
+    
+    @Override
+	public void deposit(double amount) {
+		// TODO Auto-generated method stub
+		super.deposit(amount);
+	}
+	@Override
+	public void withdraw(double amount) {
+		// TODO Auto-generated method stub
+		super.withdraw(amount);
+	}
+	@Override
+	public void transfer(BankAccount target, double amount) {
+		// TODO Auto-generated method stub
+		super.transfer(target, amount);
+	}
+	
+    
+    public double deductFees() {
+        return TRANSACTION_FEE *(transactionCount - FREE_TRANSACTION);
+    }
+}
+

@@ -1,0 +1,61 @@
+//package jframe;
+//
+//import java.awt.event.WindowAdapter;
+//import java.awt.event.WindowEvent;
+//import java.awt.event.WindowListener;
+//import javax.swing.JFrame;
+//// su ly du kien khi thao tac jframe
+//public class frame2 {
+//    public static void main(String[] args)  {
+//        JFrame frame = new JFrame();
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.addWindowListener(new WindowListener() {
+//            
+//            public void windowOpened(WindowEvent e) {
+//                System.out.println("JFrame has  been  made visible first  time");
+//            }
+//
+//            
+//            public void windowClosing(WindowEvent e) {
+//                System.out.println("JFrame is closing.");
+//            }
+//
+//            
+//            public void windowClosed(WindowEvent e) {
+//                System.out.println("JFrame is closed.");
+//            }
+//
+//            
+//            public void windowIconified(WindowEvent e) {
+//                System.out.println("JFrame is  minimized.");
+//            }
+//
+//            
+//            public void windowDeiconified(WindowEvent e) {
+//                System.out.println("JFrame is restored.");
+//            }
+//
+//            
+//            public void windowActivated(WindowEvent e) {
+//                System.out.println("JFrame is activated.");
+//            }
+//
+//           
+//            public void windowDeactivated(WindowEvent e) {
+//                System.out.println("JFrame is deactivated.");
+//            }
+//        });
+//
+//        // Use the WindowAdapter class to intercept only the window closing event
+//        frame.addWindowListener(new WindowAdapter() {
+//            
+//            public void windowClosing(WindowEvent e) {
+//                System.out.println("JFrame is closing.");
+//            }
+//        });
+//        frame.setBounds(50, 50, 300, 200);
+//        frame.setLocationRelativeTo(null);
+//        frame.setVisible(true);
+//
+//    }
+//}

@@ -1,0 +1,57 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class vungBaoLonNhat {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+	    
+	    int T = scanner.nextInt(); // number of test cases
+	    
+	    for (int t = 1; t <= T; t++) {
+	        int H = scanner.nextInt();
+	        int W = scanner.nextInt();
+	        int M = scanner.nextInt();
+	        int N = scanner.nextInt();
+	        
+	        int[][] matrix = new int[M][N];
+	        
+	        // Read the matrix
+	        for (int i = 0; i < M; i++) {
+	            for (int j = 0; j < N; j++) {
+	                matrix[i][j] = scanner.nextInt();
+	            }
+	        }
+	        
+	        int maxEvenSum = Integer.MIN_VALUE;
+	        
+	        // Slide the H x W window over the matrix
+	        for (int i = 0; i <= M - H; i++) {
+	            for (int j = 0; j <= N - W; j++) {
+	                int currentEvenSum = 0;
+	                
+	                // Calculate the sum of even numbers in the current H x W sub-matrix
+	                for (int x = 0; x < H; x++) {
+	                    for (int y = 0; y < W; y++) {
+	                        int value = matrix[i + x][j + y];
+	                        if (value % 2 == 0) {
+	                            currentEvenSum += value;
+	                        }
+	                    }
+	                }
+	                
+	                // Update maxEvenSum if the current sum is larger
+	                if (currentEvenSum > maxEvenSum) {
+	                    maxEvenSum = currentEvenSum;
+	                }
+	            }
+	        }
+	        
+	        // Print the result for the current test case
+	        System.out.println("#" + t + " " + maxEvenSum);
+	    }
+	    
+	    scanner.close();
+	
+	}
+}

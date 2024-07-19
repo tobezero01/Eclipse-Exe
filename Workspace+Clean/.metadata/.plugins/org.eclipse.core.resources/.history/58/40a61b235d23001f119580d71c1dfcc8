@@ -1,0 +1,265 @@
+package Sorting;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Sort {
+	
+
+	/*
+	 * 1. Counting Sort
+	Cách hoạt động: Đếm số lượng các phần tử có giá trị nhỏ hơn hoặc bằng từng phần tử trong mảng, sau đó sắp xếp các phần tử dựa trên số lượng này.
+	Ứng dụng: Hiệu quả cho việc sắp xếp các phần tử nằm trong một phạm vi giá trị nhất định.*/
+	
+	public static int[] countingSort(int[] nums) {
+    	int n = nums.length;
+        int min = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < n; i++) {
+            min = Math.min(min, nums[i]);
+            max = Math.max(max, nums[i]);
+        }
+        int range = max - min + 1;
+        int[] count = new int[range];
+        for (int i = 0; i < n; i++) {
+            count[nums[i] - min]++;
+        }
+        int index = 0;
+        for (int i = 0; i < range; i++) {
+            while (count[i] > 0) {
+                nums[index++] = i + min;
+                count[i]--;
+            }
+        }
+        return nums;
+    }
+	
+	// Bubble Sort
+    public static int[] bubbleSort(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+        return nums;
+    }
+    
+    
+ // Insertion Sort
+    /*
+     * 3. Insertion Sort
+	Cách hoạt động: Xây dựng dãy đã sắp xếp từ các phần tử của dãy chưa sắp xếp, lấy một phần tử từ dãy chưa sắp xếp và chèn nó vào đúng vị trí của dãy đã sắp xếp.
+	Ứng dụng: Hiệu quả cho việc sắp xếp mảng gần như đã sắp xếp.*/
+    
+    public static int[] insertionSort(int[] nums) {
+        int n = nums.length;
+        for (int i = 1; i < n; i++) {
+            int key = nums[i];
+            int j = i - 1;
+            while (j >= 0 && nums[j] > key) {
+                nums[j + 1] = nums[j];
+                j = j - 1;
+            }
+            nums[j + 1] = key;
+        }
+        return nums;
+    }
+
+    
+    
+    // Selection Sort
+    //Cách hoạt động: Lặp qua mảng, tìm phần tử nhỏ nhất và đưa nó vào đúng vị trí.
+    
+    public static int[] selectionSort(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = nums[minIndex];
+            nums[minIndex] = nums[i];
+            nums[i] = temp;
+        }
+        return nums;
+    }
+
+    
+    
+    
+    // Merge Sort
+    /*
+     * Cách hoạt động: Chia mảng thành các nửa đến khi mỗi nửa chỉ còn một phần tử, sau đó trộn các nửa này lại với nhau để tạo ra mảng đã sắp xếp.
+	Ứng dụng: Hiệu quả cho việc sắp xếp mảng lớn, hiệu quả và ổn định.*/
+    
+    public static int[] mergeSort(int[] nums) {
+        if (nums.length > 1) {
+            int mid = nums.length / 2;
+
+            int[] left = new int[mid];
+            int[] right = new int[nums.length - mid];
+
+            System.arraycopy(nums, 0, left, 0, mid);
+            System.arraycopy(nums, mid, right, 0, nums.length - mid);
+
+            mergeSort(left);
+            mergeSort(right);
+
+            merge(nums, left, right);
+        }
+        return nums;
+    }
+
+    private static void merge(int[] nums, int[] left, int[] right) {
+        int i = 0, j = 0, k = 0;
+
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                nums[k++] = left[i++];
+            } else {
+                nums[k++] = right[j++];
+            }
+        }
+
+        while (i < left.length) {
+            nums[k++] = left[i++];
+        }
+
+        while (j < right.length) {
+            nums[k++] = right[j++];
+        }
+    }
+    
+    
+
+    // Quick Sort
+    /*
+     * Cách hoạt động: Chọn một phần tử làm pivot, chia mảng thành hai phần, một phần có các phần tử nhỏ hơn pivot và một phần có các phần tử lớn hơn pivot, sau đó đệ quy sắp xếp hai phần này.
+	Ứng dụng: Hiệu quả và linh hoạt, thường là nhanh nhất trong các thuật toán sắp xếp.*/
+    
+    public static int[] quickSort(int[] nums) {
+        quickSort(nums, 0, nums.length - 1);
+        return nums;
+    }
+
+    private static void quickSort(int[] nums, int low, int high) {
+        if (low < high) {
+            int pi = partition(nums, low, high);
+
+            quickSort(nums, low, pi - 1);
+            quickSort(nums, pi + 1, high);
+        }
+    }
+
+    private static int partition(int[] nums, int low, int high) {
+        int pivot = nums[high];
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (nums[j] <= pivot) {
+                i++;
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+            }
+        }
+
+        int temp = nums[i + 1];
+        nums[i + 1] = nums[high];
+        nums[high] = temp;
+
+        return i + 1;
+    }
+    
+    
+    
+    
+    //radixSort
+    public static int[] radixSort(int[] arr) {
+        int max = Arrays.stream(arr).max().getAsInt();
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            countSort(arr, exp);
+        }
+        return arr;
+    }
+
+    private static void countSort(int[] arr, int exp) {
+        int n = arr.length;
+        int[] output = new int[n]; 
+        int[] count = new int[10];
+        Arrays.fill(count, 0);
+
+        for (int i = 0; i < n; i++) {
+            count[(arr[i] / exp) % 10]++;
+        }
+
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
+        }
+
+        System.arraycopy(output, 0, arr, 0, n);
+    }
+    
+    
+    
+    
+    //
+    public static void bucketSort(float[] arr) {
+        int n = arr.length;
+        if (n <= 0)
+            return;
+
+        @SuppressWarnings("unchecked")
+        ArrayList<Float>[] buckets = new ArrayList[n];
+
+        for (int i = 0; i < n; i++) {
+            buckets[i] = new ArrayList<Float>();
+        }
+
+        for (float num : arr) {
+            int bucketIndex = (int) (num * n);
+            buckets[bucketIndex].add(num);
+        }
+
+        for (ArrayList<Float> bucket : buckets) {
+            Collections.sort(bucket);
+        }
+
+        int index = 0;
+        for (ArrayList<Float> bucket : buckets) {
+            for (float num : bucket) {
+                arr[index++] = num;
+            }
+        }
+    }
+    
+    
+    
+    // shell Sort
+    public static void shellSort(int[] arr) {
+        int n = arr.length;
+
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                int temp = arr[i];
+                int j;
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+                    arr[j] = arr[j - gap];
+                }
+                arr[j] = temp;
+            }
+        }
+    }
+}

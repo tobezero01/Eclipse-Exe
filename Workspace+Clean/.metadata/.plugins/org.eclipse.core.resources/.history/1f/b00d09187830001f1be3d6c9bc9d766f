@@ -1,0 +1,75 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class quanMaThuVi {
+
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int T = scanner.nextInt(); // Số lượng testcase
+
+        for (int t = 1; t <= T; t++) {
+            int N = scanner.nextInt(); // Kích thước bàn cờ
+            int K = scanner.nextInt(); // Số quân mã hiện có trên bàn cờ
+            int M = scanner.nextInt(); // Số quân tốt hiện có trên bàn cờ
+            int D = scanner.nextInt(); // Số quân cờ không được phép ăn
+
+            // Đọc thông tin vị trí quân mã
+            int[][] knightPos = new int[K][2];
+            for (int i = 0; i < K; i++) {
+                knightPos[i][0] = scanner.nextInt();
+                knightPos[i][1] = scanner.nextInt();
+            }
+
+            // Đọc thông tin vị trí quân tốt
+            int[][] piecePos = new int[M][2];
+            for (int i = 0; i < M; i++) {
+                piecePos[i][0] = scanner.nextInt();
+                piecePos[i][1] = scanner.nextInt();
+            }
+
+            // Đọc thông tin vị trí quân cờ không được phép ăn
+            int[][] forbiddenPos = new int[D][2];
+            for (int i = 0; i < D; i++) {
+                forbiddenPos[i][0] = scanner.nextInt();
+                forbiddenPos[i][1] = scanner.nextInt();
+            }
+
+            // Tính số quân cờ mà mỗi quân mã có thể ăn
+            int[] numEaten = new int[K];
+            for (int i = 0; i < K; i++) {
+                for (int j = 0; j < M; j++) {
+                    if (!isForbidden(knightPos[i], piecePos[j], forbiddenPos)) {
+                        numEaten[i]++;
+                    }
+                }
+            }
+
+            // Tìm quân mã ăn được nhiều quân cờ nhất
+            int maxEaten = -1;
+            int chosenKnight = -1;
+            for (int i = 0; i < K; i++) {
+                if (numEaten[i] > maxEaten) {
+                    maxEaten = numEaten[i];
+                    chosenKnight = i + 1; // Chỉ số quân mã bắt đầu từ 1
+                }
+            }
+
+            System.out.println("#" + t + " " + knightPos[chosenKnight - 1][0] + " " +
+                    knightPos[chosenKnight - 1][1] + " " + maxEaten);
+        }
+    }
+
+    // Kiểm tra xem vị trí có nằm trong danh sách quân cờ không được phép ăn hay không
+    private static boolean isForbidden(int[] knight, int[] piece, int[][] forbidden) {
+        for (int[] pos : forbidden) {
+            if (pos[0] == knight[0] && pos[1] == knight[1]) {
+                return true;
+            }
+            if (pos[0] == piece[0] && pos[1] == piece[1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

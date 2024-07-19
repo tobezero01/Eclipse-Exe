@@ -1,0 +1,37 @@
+package Bank;
+
+class CheckingAccount extends BankAccount {
+    public static double TRANSACTION_FEE = 2.0;
+    public static int FREE_TRANSACTION = 3;
+    private int transactionCount ;
+    
+    
+    
+    public CheckingAccount(double balance) {
+		super(balance);
+		this.transactionCount = 0;
+	}
+	@Override
+	public void deposit(double amount) {
+		this.transactionCount++;
+		super.deposit(amount);
+	}
+	@Override
+	public void withdraw(double amount) {
+		this.transactionCount++;
+		super.withdraw(amount);
+	}
+	@Override
+	public void transfer(BankAccount target, double amount) {
+		this.transactionCount++;
+		super.transfer(target, amount);
+	}
+	
+    
+    public void deductFees() {
+        double fee = TRANSACTION_FEE *(this.transactionCount - FREE_TRANSACTION);
+        fee = fee < 0 ? 0:fee;
+        this.setBalance(this.getBalance() - fee);
+    }
+}
+

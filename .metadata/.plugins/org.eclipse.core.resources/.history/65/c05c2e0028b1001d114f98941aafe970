@@ -1,0 +1,21 @@
+package baitapOOP;
+
+public class Student {
+	private String name;
+	private double t;
+	private double l;
+	private double h;
+	
+	public String getName () {
+		return this.name;
+	}
+    public double getT () {
+    	return this.t;
+    }
+    public double getL () {
+    	return this.l;
+    }
+    public double getH () {
+    	return this.h;
+    }
+}

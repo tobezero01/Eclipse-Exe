@@ -1,0 +1,8 @@
+package swing2;
+
+import javax.swing.*;
+
+public class tets1 {
+	public static void main(String[] argv) {
+        JFrame frame = new JFrame("ducnhu");
+}

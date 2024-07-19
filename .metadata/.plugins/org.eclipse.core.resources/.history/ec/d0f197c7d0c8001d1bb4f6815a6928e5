@@ -1,0 +1,18 @@
+package JLabel;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+public class html {
+
+    public static void main(String[] a) {
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel label = new JLabel("<html>bold <br> plain</html>");
+        frame.add(label);
+
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+
+}

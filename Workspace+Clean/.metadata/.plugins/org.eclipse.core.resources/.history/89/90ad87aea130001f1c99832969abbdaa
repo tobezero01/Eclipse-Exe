@@ -1,0 +1,92 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class arrays {
+
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Đọc mảng số nguyên ban đầu
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        // Đọc số lượng phép biến đổi
+        int m = scanner.nextInt();
+        scanner.nextLine(); // Đọc bỏ dòng new line
+
+        // Thực hiện các phép biến đổi
+        for (int i = 0; i < m; i++) {
+            String operation = scanner.nextLine();
+            if (operation.startsWith("insert")) {
+                String[] tokens = operation.split(" ");
+                int index = Integer.parseInt(tokens[1]);
+                int value = Integer.parseInt(tokens[2]);
+                insert(array, index, value);
+            } else if (operation.startsWith("delete")) {
+                int index = Integer.parseInt(operation.split(" ")[1]);
+                delete(array, index);
+            }
+        }
+
+        // In ra mảng sau khi biến đổi
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        scanner.close();
+    }
+
+    // Phương thức thêm phần tử vào mảng tại vị trí index
+    private static void insert(int[] array, int index, int value) {
+        if (index < 0 || index > array.length) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+        }
+        // Tăng kích thước mảng
+        int[] newArray = new int[array.length + 1];
+        
+        // Sao chép các phần tử từ mảng cũ sang mảng mới cho đến vị trí index
+        for (int i = 0; i < index; i++) {
+            newArray[i] = array[i];
+        }
+        
+        // Thêm phần tử mới vào vị trí index
+        newArray[index] = value;
+        
+        // Sao chép các phần tử từ mảng cũ sang mảng mới từ vị trí index đến hết
+        for (int i = index; i < array.length; i++) {
+            newArray[i + 1] = array[i];
+        }
+        
+        // Cập nhật mảng ban đầu
+        for (int i = 0; i < newArray.length; i++) {
+            array[i] = newArray[i];
+        }
+    }
+
+    // Phương thức xóa phần tử khỏi mảng tại vị trí index
+    private static void delete(int[] array, int index) {
+        if (index < 0 || index >= array.length) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+        }
+        
+        // Giảm kích thước mảng
+        int[] newArray = new int[array.length - 1];
+        
+        // Sao chép các phần tử từ mảng cũ sang mảng mới trừ phần tử ở vị trí index
+        for (int i = 0, j = 0; i < array.length; i++) {
+            if (i != index) {
+                newArray[j++] = array[i];
+            }
+        }
+        
+        // Cập nhật mảng ban đầu
+        for (int i = 0; i < newArray.length; i++) {
+            array[i] = newArray[i];
+        }
+    }
+}

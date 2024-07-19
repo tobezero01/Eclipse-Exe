@@ -1,0 +1,23 @@
+package swing2;
+
+import javax.swing.*;
+
+public class tets1 {
+	public static void main(String[] argv) {
+        
+		SwingUtilities.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				JFrame frame = new JFrame("Hello World");
+		        frame.setSize(300, 300);
+		   	    frame.setLocationRelativeTo(null);
+		   	    frame.setVisible(true);
+		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			}
+			
+		}
+		);
+	
+	}   
+}

@@ -1,0 +1,79 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class quanMaThuVi {
+
+	static int[][] moveOffsets = {
+            {2, 1}, {2, -1}, {-2, 1}, {-2, -1}, 
+            {1, 2}, {1, -2}, {-1, 2}, {-1, -2}
+    };
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int T = scanner.nextInt();
+        for (int t = 1; t <= T; t++) {
+            int N = scanner.nextInt();
+            int K = scanner.nextInt();
+            int M = scanner.nextInt();
+            int D = scanner.nextInt();
+
+            boolean[][] knightkCheck = new boolean[N][N];
+            int[][] knights = new int[K][2];
+            for (int i = 0; i < K; i++) {
+                knights[i][0] = scanner.nextInt();
+                knights[i][1] = scanner.nextInt();
+                knightkCheck[knights[i][0]][knights[i][1]] = true;
+            }
+
+            boolean[][] pawnPositions = new boolean[N][N];
+            for (int i = 0; i < M; i++) {
+                int x = scanner.nextInt();
+                int y = scanner.nextInt();
+                pawnPositions[x][y] = true;
+            }
+
+            boolean[][] restrictedPositions = new boolean[N][N];
+            for (int i = 0; i < D; i++) {
+                int x = scanner.nextInt();
+                int y = scanner.nextInt();
+                restrictedPositions[x][y] = true;
+            }
+
+            int maxCaptures = 0;
+            int[] bestKnight = new int[2];
+            int cap [] = new int[K];int index = 0;
+            for (int i = 0; i < K; i++) {
+                int x = knights[i][0];
+                int y = knights[i][1];
+                int captures = 0;
+                
+                for (int[] offset : moveOffsets) {
+                    int nx = x + offset[0];
+                    int ny = y + offset[1];
+                    if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
+                        if (pawnPositions[nx][ny] && knightkCheck[nx][ny] && !restrictedPositions[nx][ny]) {
+                            captures++; 
+                        }
+                    }
+                }
+                cap[index++] = captures;
+                if (captures > maxCaptures) {
+                    maxCaptures = captures;
+                }
+            }
+
+            for (int i = 0; i < K; i++) {
+				if(cap[i] == maxCaptures) {
+					bestKnight[0] = knights[i][0];
+					bestKnight[1] = knights[i][1];
+					break;
+				}
+			}
+            System.out.println("#" + t + " " + bestKnight[0] + " " + bestKnight[1] + " " + maxCaptures);
+        }
+
+        scanner.close();
+    }
+}

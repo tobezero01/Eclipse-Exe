@@ -1,0 +1,32 @@
+package JLabel;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class html {
+
+    public static void main(String[] a) {
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // html
+        JLabel label = new JLabel("<html>bold <br> plain</html>");
+        
+        // can chinh van ban
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setVerticalAlignment(JLabel.CENTER);
+        
+        // tao bỏder
+        Border border = BorderFactory.createLineBorder(Color.BLACK);
+        label.setBorder(border);
+        // vo hieu hoa
+        label.setEnabled(false);
+        
+        
+        frame.add(label);
+ 
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+
+}

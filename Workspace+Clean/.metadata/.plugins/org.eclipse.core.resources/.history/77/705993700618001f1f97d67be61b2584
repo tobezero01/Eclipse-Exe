@@ -1,0 +1,106 @@
+package Arrays;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+// leetcode arrays
+public class mainArrays {
+
+    //448
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
+        for (int i = 0; i < nums.length; i++) { 
+            int index = Math.abs(nums[i]) - 1;
+            if (nums[index] > 0) {
+                nums[index] = -nums[index];
+            }
+        }
+        List<Integer> result = new ArrayList<>();
+       
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                result.add(i + 1);
+            }
+        }
+
+        return result;
+    }
+	
+	
+	// 455
+	public static int findContentChildren(int[] g, int[] s) {
+		int count =0,l =0,r=0;
+		if (s == null || g == null) return 0;
+		
+		Arrays.sort(g);
+		Arrays.sort(s);
+		
+		while(l < g.length && r < s.length) {
+			int child = g[l];
+			int cook = s[r];
+			if(cook < child) r++;
+			if( cook >= child) {
+				count ++;
+				r++;l++;
+			}
+		}
+		
+		return count;
+	}
+
+	
+	//463
+	public static int islandPerimeter(int[][] grid) {
+		int row = grid.length, col = grid[0].length;
+		int s = 0;
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col ; j++) {
+				if(grid[i][j] == 1) {
+					s+=4;
+				}
+				if(i > 0 && grid[i-1][j] == 1) s-=2;
+				if(j > 0 && grid[i][j-1] == 1) s-=2;
+			}
+		}
+		return s;
+	}
+    
+	
+	//485
+	public static  int findMaxConsecutiveOnes(int[] nums) {
+        int[] count = new int[nums.length]; 
+        int x = 0;
+        for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 0) x++;
+			else count[x]++;
+		}
+        int m = count[0];
+        for (int i : count) {
+			if(i  > m) m = i;
+		}
+        return m;
+    }
+	
+	
+	//495
+	public static int findPoisonedDuration(int[] timeSeries, int duration) {
+        int count=2;
+        if(timeSeries == null) return 0;
+        for (int i = 0; i < timeSeries.length-1; i++) {
+			if(timeSeries[i+1] - timeSeries[i] >= duration ) {
+				count += duration;
+			}else {
+				count += timeSeries[i+1] - timeSeries[i] ;
+			}
+		}
+		return count;
+    }
+	
+	public static void main(String[] args) {
+    	
+    	int [] t = {1,2,3,4,5,6,7,8,9};					
+    	System.out.println(findPoisonedDuration(t, 2));
+    }
+}

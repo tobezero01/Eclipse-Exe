@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="525"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="574"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+			<item value="org.eclipse.debug.ui.LaunchDelegatesPreferencePage"/>
+			<item value="org.eclipse.ui.preferencePages.ColorsAndFonts"/>
+			<item value="org.eclipse.ui.edit.text.zoomIn"/>
+			<item value="org.eclipse.ui.edit.text.zoomOut"/>
+			<item value="org.eclipse.egit.ui.CreateRepositoryWizard"/>
+			<item value="org.eclipse.jdt.ui.PackageExplorer"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.ui.preferences"/>
+			<item value="org.eclipse.ui.preferences"/>
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.wizards"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="def"/>
+			<item value="fon"/>
+			<item value="zoo"/>
+			<item value="zo"/>
+			<item value="git"/>
+			<item value="ex"/>
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialog">
+		<item key="DIALOG_X_ORIGIN" value="308"/>
+		<item key="DIALOG_Y_ORIGIN" value="84"/>
+		<item key="DIALOG_WIDTH" value="659"/>
+		<item key="DIALOG_HEIGHT" value="656"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|8.830189|0|WINDOWS|1|-13|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>

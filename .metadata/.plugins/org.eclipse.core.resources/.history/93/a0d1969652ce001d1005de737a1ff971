@@ -1,0 +1,56 @@
+package swing2;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+public class test2 extends JFrame{
+      
+	//private JTextArea textArea;
+	private JButton btn;
+	private textPanel  tPanel;
+	private Toolbar toolbar;
+	private Formpanel formpanel;
+	public test2() {
+    	  super("Hello World");
+    	  
+    	  setLayout(new BorderLayout());
+    	  btn = new JButton("Click me!");
+    	  //textArea = new JTextArea();
+    	  toolbar = new Toolbar();
+    	  tPanel = new textPanel();
+    	  formpanel = new Formpanel();
+    	  toolbar.setStringListener(new StringListener() {
+			
+			public void textEmitted(String text) {
+				tPanel.appendText(text);
+			}
+		});;
+    	  btn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				tPanel.appendText("hello\n");
+				
+			}
+		});
+    	  
+    	  formpanel.setFormListener(new FormListener() {
+    		  public void formEventOccurred(FormEvent e) {
+    			  String name = e.getName();
+    			  String occupation = e.getOccupation();
+    			  textPanel.appendText(name + " :" + occupation);
+    		  }
+    	  });
+    	  add(formpanel,BorderLayout.WEST);
+    	  add(toolbar,BorderLayout.NORTH);
+    	  add(tPanel,BorderLayout.CENTER);
+    	  //add(textArea,BorderLayout.CENTER);
+    	  add(btn,BorderLayout.SOUTH);
+    	  
+	      setSize(700, 700);
+	   	  setLocationRelativeTo(null);
+	   	  setVisible(true);
+	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      }
+ 
+}

@@ -1,0 +1,49 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class RobotThamhiem {
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		int T = sc.nextInt();
+		
+		for (int t = 0; t < T; t++) {
+			int N = sc.nextInt();
+			int x = sc.nextInt();
+			int y = sc.nextInt();
+			int ar[][] = new int[N][N];
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					ar[i][j] = sc.nextInt();
+				}
+			}
+			int dx [] =  {0,-1,0,1};
+			int dy [] = {-1,0,1,0};
+			boolean breakP = true;
+			int ans = ar[x][y];
+			while(breakP) {
+				boolean flag = false;
+				int max =ar[x][y];
+				int tempX = x, tempY = y;
+				for (int h = 0 ; h < 4; h++) {
+					int newX = x + dx[h];
+					int newY = y + dy[h];
+					
+					if(newX < 0 || newX >= N || newY < 0 || newY >=N) continue;
+					if (ar[newX][newY] > max) {
+						flag = true;
+						tempX = newX;
+						tempY = newY;
+						max = ar[newX][newY];
+					}
+				}
+				if(flag) ans+=max;
+				else breakP =  false;
+				
+				x = tempX;
+				y = tempY;
+			}
+			System.out.println("#" + (t) + " " + ans);
+		}
+	}
+}

@@ -1,0 +1,119 @@
+package swing2;
+import java.awt.BorderLayout;
+import java.util.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.*;
+public class test2 extends JFrame{
+      
+	//private JTextArea textArea;
+	private JButton btn;
+	private textPanel  tPanel;
+	private Toolbar toolbar;
+	private Formpanel formpanel;	
+	private JFileChooser fileChooser;
+	
+	public test2() {
+    	  super("Hello World");
+    	  
+    	  setLayout(new BorderLayout());
+    	  btn = new JButton("Click me!");
+    	  //textArea = new JTextArea();
+    	  toolbar = new Toolbar();
+    	  tPanel = new textPanel();
+    	  formpanel = new Formpanel();
+    	  fileChooser = new JFileChooser();
+    	  setJMenuBar(createMenuBar());
+    	  
+    	  toolbar.setStringListener(new StringListener() {
+			
+			public void textEmitted(String text) {
+				tPanel.appendText(text);
+			}
+		});;
+    	  btn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				tPanel.appendText("hello\n");
+				
+			}
+		});
+    	  
+    	  formpanel.setFormListener(new FormListener() {
+    		  public void formEventOccurred(FormEvent e) {
+    			  String name = e.getName();
+    			  String occupation = e.getOccupation();
+    			  int ageCat = e.getAgeCategory();
+    			  String empcat = e.getEmpcat();
+    			  
+    			  tPanel.appendText(name + " :" + occupation + ageCat + empcat);
+    		      System.out.println(e.getGender());
+    		  }
+    	  });
+    	  
+    	  
+    	  
+    	  
+    	  add(formpanel,BorderLayout.WEST);
+    	  add(toolbar,BorderLayout.NORTH);
+    	  add(tPanel,BorderLayout.CENTER);
+    	  //add(textArea,BorderLayout.CENTER);
+    	  add(btn,BorderLayout.SOUTH);
+    	  
+	      setSize(700, 700);
+	   	  setLocationRelativeTo(null);
+	   	  setVisible(true);
+	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      }
+     private JMenuBar createMenuBar() {
+    	 JMenuBar menuBar = new JMenuBar();
+    	 JMenu fileMenu = new JMenu("file");
+    	 
+    	 JMenuItem exportDataItem = new JMenuItem("export item"); 
+    	 JMenuItem importDataItem = new JMenuItem("import item");   
+    	 JMenuItem exititem = new JMenuItem("Exit");
+    	 
+    	 fileMenu.add(exportDataItem);
+    	 fileMenu.add(importDataItem);
+    	 fileMenu.addSeparator();
+    	 fileMenu.add(exititem);
+    	 
+    	 JMenu windowMenu = new JMenu("Window");
+    	 
+    	 JMenu showMenu = new JMenu("show");
+    	 final JCheckBoxMenuItem showFormItem = new JCheckBoxMenuItem("Person Form");
+    	 showFormItem.setSelected(true);
+    	 
+    	 showMenu.add(showFormItem);
+    	 windowMenu.add(showMenu);
+    	 menuBar.add(fileMenu);
+    	 menuBar.add(windowMenu);
+    	 
+    	 showFormItem.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent ev) {
+				JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem)ev.getSource();
+			    formpanel.setVisible(menuItem.isSelected());
+			    
+			}
+			
+		});
+    	 fileMenu.setMnemonic(KeyEvent.VK_F);
+    	 exititem.setMnemonic(KeyEvent.VK_X);
+    	 exititem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X ,ActionEvent.CTRL_MASK));
+    	 exititem.addActionListener(new ActionListener() {
+		 filec
+			public void actionPerformed(ActionEvent e) {
+				String text = JOptionPane.showInputDialog(test2.this,"enter your user name","enter user name",JOptionPane.OK_OPTION|JOptionPane.INFORMATION_MESSAGE);
+				int action = JOptionPane.showConfirmDialog(test2.this,"do you realy quant to close ?","comfirm exit ",JOptionPane.OK_CANCEL_OPTION );
+				System.out.println(text);
+				if (action==JOptionPane.OK_OPTION) {
+					System.exit(0);
+				}				
+			}
+		});
+    	 return menuBar;
+     }
+}

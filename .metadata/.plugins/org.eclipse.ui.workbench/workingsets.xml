@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1676799997963_0" label="Java Main Sources" name="Java Main Sources"/>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1676799997971_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1699514205535_5" label="ProjectManageStudent" name="ProjectManageStudent">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/maven-students-project" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1676799998923_2" label="Window Working Set" name="Aggregate for window 1676799998923"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1676900135030_3" label="Window Working Set" name="Aggregate for window 1676900135030"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1676951126945_4" label="Window Working Set" name="Aggregate for window 1676902460806"/>
+<mruList name="ProjectManageStudent"/>
+</workingSetManager>

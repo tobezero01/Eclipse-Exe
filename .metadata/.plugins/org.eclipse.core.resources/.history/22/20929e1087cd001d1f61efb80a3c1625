@@ -1,0 +1,41 @@
+package swing2;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+public class test2 extends JFrame{
+      
+	//private JTextArea textArea;
+	private JButton btn;
+	private textPanel  tPanel;
+	private Toolbar toolbar;
+	public test2() {
+    	  super("Hello World");
+    	  
+    	  setLayout(new BorderLayout());
+    	  btn = new JButton("Click me!");
+    	  //textArea = new JTextArea();
+    	  toolbar = new Toolbar();
+    	  tPanel = new textPanel();
+    	  
+    	  toolbar.setTextPanel();
+    	  btn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				tPanel.appendText("hello");
+				
+			}
+		});
+    	  add(toolbar,BorderLayout.NORTH);
+    	  add(tPanel,BorderLayout.CENTER);
+    	  //add(textArea,BorderLayout.CENTER);
+    	  add(btn,BorderLayout.SOUTH);
+    	  
+	      setSize(300, 300);
+	   	  setLocationRelativeTo(null);
+	   	  setVisible(true);
+	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      }
+ 
+}

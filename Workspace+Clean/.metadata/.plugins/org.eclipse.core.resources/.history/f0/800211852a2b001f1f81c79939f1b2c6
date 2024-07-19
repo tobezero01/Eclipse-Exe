@@ -1,0 +1,38 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class xuLymangChuoi {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine().trim();
+		
+		int T = sc.nextInt();
+		int m = str.length();
+		for (int t = 0; t < T; t++) {
+			String op = sc.nextLine();
+			String ops[] = op.split(" ");
+			
+			if(ops[0].toLowerCase().equals("insert")) {
+				String temp = "";
+				int pos = Integer.valueOf(ops[1]) - 1;
+				for(int i = 0 ;i <= pos-1; i++) temp+=String.valueOf(str.charAt(i));
+				temp+= ops[2];
+				for(int i = pos ;i <= m-1; i++) temp+=String.valueOf(str.charAt(i));
+				str = temp;
+				m =str.length();
+				System.out.print(str);
+			}else if(ops[0].toLowerCase().equals("delete")) {
+				String temp = "";
+				int pos = Integer.valueOf(ops[1]) - 1;
+				for(int i = 0 ;i <= pos; i++) temp+=String.valueOf(str.charAt(i));
+				int t1 = Integer.valueOf(ops[2]);
+				for(int i = pos+t1 ;i <= m-1; i++) temp+=String.valueOf(str.charAt(i));
+				str =temp;m =str.length();
+				System.out.print(str);
+			}
+		}
+		System.out.println(str);
+	}
+}

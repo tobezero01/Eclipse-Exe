@@ -1,0 +1,5 @@
+package swing2;
+
+public interface FormListener {
+
+}

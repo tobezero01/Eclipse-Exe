@@ -1,0 +1,30 @@
+package baitapDauTien;
+import java.util.*;
+class Diem {
+	private int x;
+	private int y;
+	public Diem(int x,int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public void setx(int tung) {
+		this.x = tung;
+	}
+	public void sety(int hoanh) {
+		this.y = hoanh;
+	}
+	public int getx() {
+		return this.x;
+	}
+	public int gety() {
+		return this.y;
+	}
+}
+class DuongThang {
+	Diem A;
+	Diem B;
+	public 
+}
+public class bai1 {
+
+}

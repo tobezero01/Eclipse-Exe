@@ -1,0 +1,33 @@
+package Bank;
+
+import java.util.Scanner;
+class BankAccount {
+    private double balance;
+    public BankAccount() {}
+    public BankAccount(double balance) {
+        this.balance = balance;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+    public double getBalance() {
+        return balance;    
+    }    
+    public void deposit(double amount) {
+    	this.balance += amount;
+
+    }
+    public void withdraw() {
+        
+        //System.out.println("so du : " + (getBalance() - w) );
+
+    }
+    public void transfer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("nhap tien chuyen khoan = ");
+        double t = sc.nextDouble();
+       // System.out.println("so du : " + (getBalance() - t) );
+ 
+    }
+}
+

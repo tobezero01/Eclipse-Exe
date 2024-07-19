@@ -1,0 +1,6 @@
+package Model;
+
+// luu thong tin sinh vien
+public class student {
+
+}

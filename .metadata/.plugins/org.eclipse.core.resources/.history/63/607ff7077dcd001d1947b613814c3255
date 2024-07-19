@@ -1,0 +1,15 @@
+package swing2;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+public class textPanel extends JPanel{
+	private JTextArea textArea;
+    public textPanel() {
+    	textArea = new JTextArea();
+    	setLayout(new BorderLayout());
+    	add(new JScrollPane(textArea),BorderLayout.CENTER);
+    	
+    }
+}

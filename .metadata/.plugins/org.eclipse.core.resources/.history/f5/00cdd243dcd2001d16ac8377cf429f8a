@@ -1,0 +1,73 @@
+package View;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+
+// giao diện trình đăng nhập
+import Model.user;
+
+@SuppressWarnings("unused")
+public class loginView extends JFrame implements ActionListener{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+    private JLabel loginNameLabel;
+    private JLabel passwordLabel;
+    private JTextField nameLoginField;
+    private JPasswordField passwordField;
+    private JButton loginBtn;
+    
+    public loginView() {
+    	initializationComponents();
+    }
+    private void initializationComponents() {
+    	  loginNameLabel = new JLabel("UserName");
+    	  passwordLabel = new JLabel("Password");
+    	  nameLoginField = new JTextField(20);
+    	  passwordField = new JPasswordField(20);
+    	  
+    	  loginBtn = new JButton("Login");	  
+    	  loginBtn.addActionListener(this);
+    	  SpringLayout layout = new SpringLayout();
+          JPanel panel = new JPanel();
+          // tạo đối tượng panel để chứa các thành phần của màn hình login
+          panel.setSize(400, 300);
+          panel.setLayout(layout);
+          panel.add(loginNameLabel);
+          panel.add(passwordLabel);
+          panel.add(nameLoginField);
+          panel.add(passwordField);
+          panel.add(loginBtn);
+   
+          // cài đặt vị trí các thành phần trên màn hình login
+          layout.putConstraint(SpringLayout.WEST, loginNameLabel, 20, SpringLayout.WEST, panel);
+          layout.putConstraint(SpringLayout.NORTH, loginNameLabel, 80, SpringLayout.NORTH, panel);
+          layout.putConstraint(SpringLayout.WEST, passwordLabel, 20, SpringLayout.WEST, panel);
+          layout.putConstraint(SpringLayout.NORTH, passwordLabel, 105, SpringLayout.NORTH, panel);
+          layout.putConstraint(SpringLayout.WEST, nameLoginField, 80, SpringLayout.WEST, loginNameLabel);
+          layout.putConstraint(SpringLayout.NORTH, nameLoginField, 80, SpringLayout.NORTH, panel);
+          layout.putConstraint(SpringLayout.WEST, passwordField, 80, SpringLayout.WEST, passwordLabel);
+          layout.putConstraint(SpringLayout.NORTH, passwordField, 105, SpringLayout.NORTH, panel);
+          layout.putConstraint(SpringLayout.WEST, loginBtn, 80, SpringLayout.WEST, passwordLabel);
+          layout.putConstraint(SpringLayout.NORTH, loginBtn, 130, SpringLayout.NORTH, panel);
+          this.add(panel);
+    	  setSize(400, 400);
+	   	  setLocationRelativeTo(null);
+	   	  setVisible(true);
+	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

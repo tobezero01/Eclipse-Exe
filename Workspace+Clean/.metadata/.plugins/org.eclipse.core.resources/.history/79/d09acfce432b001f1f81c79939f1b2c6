@@ -1,0 +1,58 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class demTu {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int T = sc.nextInt();
+		for (int t = 0; t < T; t++) {
+			int m = sc.nextInt();
+			int n = sc.nextInt();
+			int[] dx = {-1,1,0,0,-1,-1,1,1};
+			int[] dy = {0,0,-1,1,-1,1,-1,1};
+			String [] words = new String[n];
+			for (int j = 0; j < n; j++) {
+				words[j] = sc.next();
+			}
+			
+			char[][] matrix = new char[m][m];
+			for (int i = 0; i < m; i++) {
+				String line = sc.next();
+				for (int j = 0; j < m; j++) {
+					matrix[i][j] = line.charAt(j);
+				}
+			}
+			int nums[] = new int[n];
+			for (int i = 0; i < m; i++) {
+				for (int j = 0; j < m; j++) {
+					for (int j2 = 0; j2 < n; j2++) {
+						
+						for (int k = 0; k < 8; k++) {
+							int newI = i;
+							int newJ = j;
+							boolean match = true;
+							for (int l = 0; l < words[j2].length(); l++) {
+								if(newI < 0 || newJ < 0 ||
+									newI >= m || newJ >= m ||
+									 matrix[newI][newJ] != words[j2].charAt(l)) {
+									match = false;
+									break;
+								}
+								newI += dx[k];newJ+=dy[k];
+							}
+							if(match) nums[j2]++;
+						}
+					}
+				}
+			}
+			System.out.print("#" + (t+1) );
+			for (int i = 0; i < n; i++) {
+				System.out.print(" " + nums[i]);
+			}
+			System.out.println();
+		}
+	}
+}

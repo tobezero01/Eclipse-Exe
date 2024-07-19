@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<students>
+    <student>
+        <id>1</id>
+        <name>Mai Thanh</name>
+        <lastName>Tung</lastName>
+        <age>22</age>
+        <gender>male</gender>
+        <address>Ha Noi</address>
+        <phoneNumber>0987654321</phoneNumber>
+        <email>toan421324@gmail.com</email>
+        <major>CNTT</major>
+        <date>10/04/2003</date>
+        <gpa>3.0</gpa>
+    </student>
+    <student>
+        <id>2</id>
+        <name>Mai Thanh</name>
+        <lastName>Doàn</lastName>
+        <age>22</age>
+        <gender>male</gender>
+        <address>Ha Noi</address>
+        <phoneNumber>0987654321</phoneNumber>
+        <email>toan421324@gmail.com</email>
+        <major>CNTT</major>
+        <date>10/04/2003</date>
+        <gpa>3.4</gpa>
+    </student>
+    <student>
+        <id>3</id>
+        <name>Nguyễn Tiến</name>
+        <lastName>Tùng</lastName>
+        <age>20</age>
+        <gender>male</gender>
+        <address>Ha Noi</address>
+        <phoneNumber>0987654321</phoneNumber>
+        <email>tung421324@gmail.com</email>
+        <major>CNTT</major>
+        <date>10/04/2003</date>
+        <gpa>3.8</gpa>
+    </student>
+</students>

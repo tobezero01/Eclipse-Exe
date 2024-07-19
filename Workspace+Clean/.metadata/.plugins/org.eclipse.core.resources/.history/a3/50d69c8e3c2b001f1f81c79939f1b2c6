@@ -1,0 +1,98 @@
+package SpojPractice;
+
+import java.util.Scanner;
+
+public class countTank {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int T = sc.nextInt();
+		sc.nextLine();
+		for (int t =1; t<= T; t++) {
+			int m = sc.nextInt();
+			int n = sc.nextInt();
+			
+			int [][] matrix = new int[m][n];
+			for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    matrix[i][j] = sc.nextInt();
+                }
+            }
+			
+			int count3 = 0, count4 = 0, count5 = 0;
+			
+			
+			for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (matrix[i][j] == 1) {
+                        // Đếm số lượng số 1 liên tiếp theo chiều dọc
+                        int verticalCount = 0;
+                        while (i + verticalCount < m && matrix[i + verticalCount][j] == 1) {
+                            verticalCount++;
+                        }
+                        
+                        // Đếm số lượng số 1 liên tiếp theo chiều ngang
+                        int horizontalCount = 0;
+                        while (j + horizontalCount < n && matrix[i][j + horizontalCount] == 1) {
+                            horizontalCount++;
+                        }
+                        
+                        // Đếm số lượng số 1 liên tiếp theo đường chéo chính
+                        int diagonalCount = 0;
+                        while (i + diagonalCount < m && j + diagonalCount < n && matrix[i + diagonalCount][j + diagonalCount] == 1) {
+                            diagonalCount++;
+                        }
+                        
+                        // Đếm số lượng số 1 liên tiếp theo đường chéo phụ
+                        int antiDiagonalCount = 0;
+                        while (i - antiDiagonalCount >= 0 && j + antiDiagonalCount < n && matrix[i - antiDiagonalCount][j + antiDiagonalCount] == 1) {
+                            antiDiagonalCount++;
+                        }
+                        
+                        // Kiểm tra và đếm nhóm bạn có độ dài 3, 4 và 5
+                        if (verticalCount >= 3) {
+                            if (verticalCount == 3) count3++;
+                            else if (verticalCount == 4) count4++;
+                            else if (verticalCount == 5) count5++;
+                        }
+                        
+                        if (horizontalCount >= 3) {
+                            if (horizontalCount == 3) count3++;
+                            else if (horizontalCount == 4) count4++;
+                            else if (horizontalCount == 5) count5++;
+                        }
+                        
+                        if (diagonalCount >= 3) {
+                            if (diagonalCount == 3) count3++;
+                            else if (diagonalCount == 4) count4++;
+                            else if (diagonalCount == 5) count5++;
+                        }
+                        
+                        if (antiDiagonalCount >= 3) {
+                            if (antiDiagonalCount == 3) count3++;
+                            else if (antiDiagonalCount == 4) count4++;
+                            else if (antiDiagonalCount == 5) count5++;
+                        }
+                        
+                        // Đánh dấu các số đã duyệt qua bằng cách gán lại giá trị
+                        for (int k = 0; k < verticalCount; k++) {
+                            matrix[i + k][j] = 0;
+                        }
+                        for (int k = 0; k < horizontalCount; k++) {
+                            matrix[i][j + k] = 0;
+                        }
+                        for (int k = 0; k < diagonalCount; k++) {
+                            matrix[i + k][j + k] = 0;
+                        }
+                        for (int k = 0; k < antiDiagonalCount; k++) {
+                            matrix[i - k][j + k] = 0;
+                        }
+                    }
+                }
+            }
+            
+            // In kết quả cho testcase hiện tại
+            System.out.println("#" + t + " " + count3 + " " + count4 + " " + count5);
+		}
+	}
+}

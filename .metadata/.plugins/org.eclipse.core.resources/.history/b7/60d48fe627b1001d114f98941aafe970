@@ -1,0 +1,50 @@
+package baitapOOP;
+import java.util.*;
+
+
+public class baitap {
+	 class Student {
+		private String name;
+		private double t;
+		private double l;
+		private double h;
+		
+		public String getName () {
+			return this.name;
+		}
+	    public double getT () {
+	    	return this.t;
+	    }
+	    public double getL () {
+	    	return this.l;
+	    }
+	    public double getH () {
+	    	return this.h;
+	    }
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhap so sinh vien : ");
+		int n = sc.nextInt();
+		Student a[] = new Student[n];
+		for (int i = 0; i < n; i++) {
+			a[i] = new Student();
+			System.out.print("\nSinh vien thu "+ i);
+			System.out.print("\nTen sinh vien ");
+			sc.nextLine();
+			a[i].name = sc.nextLine();
+			System.out.print("\nDiem toan ");
+			a[i].t = sc.nextDouble();
+			System.out.print("\nDiem ly ");
+			a[i].l = sc.nextDouble();
+			System.out.print("\nDiem hoa ");
+			a[i].h = sc.nextDouble();
+		}
+	    for (Student s : a) {
+	    	System.out.print(s.name + " " + s.t + " " + s.l + " " + s.h);
+	    }
+
+	}
+
+}
+

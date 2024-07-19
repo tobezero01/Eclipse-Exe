@@ -1,0 +1,13 @@
+package swing2;
+import javax.swing.*;
+public class test2 extends JFrame{
+      public test2() {
+    	  super("Hello World");
+    	  JFrame frame = new JFrame("Hello World");
+	        frame.setSize(300, 300);
+	   	    frame.setLocationRelativeTo(null);
+	   	    frame.setVisible(true);
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      }
+ 
+}

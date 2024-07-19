@@ -1,0 +1,53 @@
+package Bank;
+import java.util.Scanner;
+class CheckingAccount extends BankAccount {
+    public static double TRANSACTION_FEE = 2.0;
+    public static int FREE_TRANSACTION = 3;
+    public static int transactionCount ;
+    
+    @Override
+    public void deposit() {
+        super.deposit();
+        transactionCount++; 
+    }
+    
+    @Override
+    public void withdraw() {
+        super.withdraw();
+        transactionCount++;
+   
+    }
+    @Override
+    public void transfer() {   	
+        super.transfer();
+        transactionCount++;
+ 
+        
+    }
+    
+    public double getDeposit() {
+    	Scanner sc = new Scanner(System.in);
+        transactionCount++; 
+        System.out.print("nhap tien gui = ");
+        double d = sc.nextDouble();
+        return d;
+    }
+    public double getWithdraw() {
+    	Scanner sc = new Scanner(System.in);
+        transactionCount++; 
+        System.out.print("nhap tien rut = ");
+        double w = sc.nextDouble();
+        return w;
+    }
+    public double getTranfer() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.print("nhap tien chuyen khoan = ");
+        double t = sc.nextDouble();transactionCount++;
+        return t;
+    }
+    
+    public double deductFees() {
+        return TRANSACTION_FEE *(transactionCount - FREE_TRANSACTION);
+    }
+}
+

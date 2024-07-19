@@ -1,0 +1,16 @@
+package swing2;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class Toolbar extends JPanel{
+    private JButton helloButton;
+    private JButton gbyeButton;
+	public Toolbar() {
+        	helloButton = new JButton("2");
+        	gbyeButton = new JButton("1");
+        	setLayout(new FlowLayout());
+      }
+}

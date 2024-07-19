@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<students>
+    <student>
+        <id>1</id>
+        <name>Mai Thanh Toan</name>
+        <age>22</age>
+        <address>Ha Noi</address>
+        <gpa>8.0</gpa>
+    </student>
+    <student>
+        <id>3</id>
+        <name>Dai Bang</name>
+        <age>24</age>
+        <address>Ha Nam</address>
+        <gpa>9.1</gpa>
+    </student>
+    <student>
+        <id>2</id>
+        <name>Vinh The Mac</name>
+        <age>23</age>
+        <address>Vinh Phuc</address>
+        <gpa>9.199999809265137</gpa>
+    </student>
+</students>

@@ -1,0 +1,82 @@
+package matrix;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class mainMatrix {
+
+	
+	//54. Spiral Matrix
+	public static List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new ArrayList<Integer>();
+        int row = matrix.length;
+        int col = matrix[0].length;
+        
+        int l = 0,r = col-1, top = 0, bottom = row-1;
+        int count=0, m = col * row;
+        while( l <= r && top <= bottom) {
+        	for (int i = l; i <= r; i++) {
+				res.add(matrix[top][i]);count++;
+			}
+        	top++;
+        	if(count == m) break;
+        	for (int i = top; i <= bottom; i++) {
+				res.add(matrix[i][r]);count++;
+			}
+        	r--;
+        	if(count == m) break;
+        	for (int i = r; i >= l; i--) {
+				res.add(matrix[bottom][i]);count++;
+			}
+        	bottom--;
+        	if(count == m) break;
+        	for (int i = bottom; i >= top; i--) {
+				res.add(matrix[i][l]);count++;
+			}
+        	l++;
+        	if(count == m) break;
+        }
+        
+        return res;
+    }
+	
+	
+	
+	// 59. Spiral Matrix II
+	public int[][] generateMatrix(int n) {
+		int [][] arr = new int[n][n];
+		int l = 0, r= n-1, t = 0, b = n-1, index = 1;
+		while (l <= r && t <= b) {
+			for(int i = l; i <= r; i++) arr[t][i] = index++;
+			t++;
+			for(int i = t ; i <= b ; i++) arr[i][r] = index++;
+			r--;
+			for(int i = r; i >= l; i--) arr[b][i] = index++;
+			b--;
+			for(int i = b ; i >= t ; i--) arr[i][l] = index++;
+			l++;
+		}
+		
+        return arr;
+    }
+	
+	
+	
+	//74. Search a 2D Matrix
+	public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length , n =matrix[0].length;
+        
+        int t = 0, b = m-1;
+        int l = 0, r = n-1;
+        while(l <= r && t <= b) {
+        	
+        }
+        return true;
+    }
+	
+	
+	public static void main(String[] args) {
+		
+	}
+}

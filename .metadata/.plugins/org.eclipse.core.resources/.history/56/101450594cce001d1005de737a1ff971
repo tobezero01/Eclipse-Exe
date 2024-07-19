@@ -1,0 +1,49 @@
+package swing2;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class Toolbar extends JPanel implements ActionListener{
+    private JButton helloButton;
+    private JButton gbyeButton;
+    private StringListener textListener;
+    private textPanel tp;
+	public Toolbar() {
+		    setBorder(BorderFactory.createEtchedBorder());
+        	helloButton = new JButton("Hello");
+        	gbyeButton = new JButton("Goodbye");
+        	helloButton.addActionListener(this);
+        	gbyeButton.addActionListener(this);
+        	
+        	setLayout(new FlowLayout(FlowLayout.LEFT));
+        	add(helloButton);
+        	add(gbyeButton);
+      }
+	public void setStringListener(StringListener listener) {
+		this.textListener = listener;
+	}
+	public void setTextPanel(textPanel tpanel) {
+		this.tp = tpanel;
+	}
+	public void actionPerformed(ActionEvent e) {
+		JButton clicked = (JButton)e.getSource() ;
+		if(clicked == helloButton) {
+//			System.out.println("hello");
+//			tp.appendText("Hello ");
+			if(textListener != null) {
+				textListener.textEmitted("hello\n");
+			}
+		}else if(clicked == gbyeButton) {
+//			System.out.println("goodbye");
+//			tp.appendText("Gb ");
+			if(textListener != null) {
+				textListener.textEmitted("ggb");
+			}
+		}
+	}
+}

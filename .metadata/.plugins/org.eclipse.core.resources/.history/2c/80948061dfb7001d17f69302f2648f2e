@@ -1,0 +1,29 @@
+package Bank;
+
+import java.util.*;
+
+public class main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BankAccount b = new BankAccount();
+        CheckingAccount c = new CheckingAccount();
+        SavingAccount s = new SavingAccount(10000,10);
+        
+        // set cho so du
+        double balan = s.getBalance();
+        System.out.println(s.getBalance());
+        
+        b.setBalance(balan);
+        c.setBalance(balan);
+        //tinh lai
+        s.setInterestRate(10);
+        
+        
+        System.out.println("so giao dich " + c.transactionCount);
+        
+        System.out.println("so du = " + ((c.getBalance() - c.getTranfer() - c.getWithdraw()) + c.getDeposit()));
+        System.out.println(c.deductFees());
+    }
+}
+
+        

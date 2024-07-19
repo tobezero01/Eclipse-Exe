@@ -1,0 +1,15 @@
+1681144277686	Convert local variable 'students' to field
+1681147314289	Convert local variable 'row' to field
+1681246491712	Convert local variable 'name' to field
+1681247240825	Convert local variable 'phoneNumber' to field
+1681247358696	Convert local variable 'pattern' to field
+1681249051901	Encapsulate field 'stSolution'
+1681249059845	Encapsulate field 'stView'
+1681252536851	Delete element
+1681270399034	Delete element
+1681270403382	Delete element
+1681270407121	Delete element
+1681270410643	Delete element
+1681270418969	Delete element
+1681492812646	Delete element
+1681492825251	Delete element
